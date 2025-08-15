@@ -34,7 +34,10 @@ function App() {
       } catch (error) {
         console.error('Error fetching initial data:', error);
       } finally {
-        setLoading(false);
+        // Add a minimum display time for the ARPITFLIX loading screen
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000); // Show for 3 seconds minimum
       }
     };
 
@@ -83,58 +86,56 @@ function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
-        {/* Enhanced Galaxy Background */}
+        {/* Optimized Galaxy Background - Reduced elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20"></div>
           
-          {/* Animated Stars */}
-          {[...Array(100)].map((_, i) => (
+          {/* Reduced Animated Stars - Only 30 instead of 100 */}
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-white rounded-full opacity-70"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${1 + Math.random() * 2}s`
+                animation: `twinkle ${2 + Math.random()}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
               }}
             />
           ))}
           
-          {/* Floating Orbs */}
-          {[...Array(8)].map((_, i) => (
+          {/* Reduced Floating Orbs - Only 3 instead of 8 */}
+          {[...Array(3)].map((_, i) => (
             <div
               key={`orb-${i}`}
-              className="absolute rounded-full animate-pulse"
+              className="absolute rounded-full opacity-40"
               style={{
-                width: `${10 + Math.random() * 30}px`,
-                height: `${10 + Math.random() * 30}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, rgba(${Math.random() > 0.5 ? '59, 130, 246' : '147, 51, 234'}, 0.8), transparent)`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
+                width: `${15 + i * 10}px`,
+                height: `${15 + i * 10}px`,
+                left: `${20 + i * 30}%`,
+                top: `${20 + i * 20}%`,
+                background: `radial-gradient(circle, rgba(${i === 0 ? '59, 130, 246' : i === 1 ? '147, 51, 234' : '236, 72, 153'}, 0.6), transparent)`,
+                animation: `float ${3 + i}s ease-in-out infinite`,
+                animationDelay: `${i * 0.5}s`
               }}
             />
           ))}
         </div>
         
         <div className="text-center relative z-10">
-          {/* Enhanced Loading Spinner */}
+          {/* Simplified Loading Spinner - Single spinner */}
           <div className="relative mb-8">
-            <div className="w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-spin mx-auto"></div>
-            <div className="w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500 animate-spin mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -rotate-45" style={{animationDelay: '0.3s'}}></div>
-            <div className="w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-purple-500 via-blue-600 to-pink-500 animate-spin mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 rotate-45" style={{animationDelay: '0.6s'}}></div>
+            <div className="w-16 h-16 rounded-full border-4 border-transparent bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-spin mx-auto"></div>
           </div>
           
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               🚀 ARPITFLIX
             </h2>
-            <p className="text-lg md:text-xl text-white font-medium animate-pulse">
+            <p className="text-lg md:text-xl text-white/80 font-medium">
               Launching into the Galaxy...
             </p>
-            <div className="flex justify-center space-x-1">
+            <div className="flex justify-center space-x-2">
               {[...Array(3)].map((_, i) => (
                 <div
                   key={i}
@@ -151,52 +152,51 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Enhanced Galaxy Background */}
+      {/* Optimized Galaxy Background - Much lighter */}
       <div className="fixed inset-0 pointer-events-none">
         {/* Primary gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-purple-950"></div>
         
-        {/* Animated nebula overlay */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 animate-pulse"></div>
+        {/* Simplified nebula overlay */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
         </div>
         
-        {/* Stars field */}
-        {[...Array(150)].map((_, i) => (
+        {/* Reduced stars field - Only 50 instead of 150 */}
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full animate-pulse"
+            className="absolute bg-white rounded-full opacity-60"
             style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-              opacity: Math.random() * 0.8 + 0.2
+              animation: `twinkle ${3 + Math.random() * 2}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 3}s`
             }}
           />
         ))}
         
-        {/* Floating cosmic particles */}
-        {[...Array(20)].map((_, i) => (
+        {/* Reduced cosmic particles - Only 8 instead of 20 */}
+        {[...Array(8)].map((_, i) => (
           <div
             key={`particle-${i}`}
-            className="absolute w-1 h-1 rounded-full animate-ping"
+            className="absolute w-1 h-1 rounded-full opacity-40"
             style={{
               background: `rgba(${Math.random() > 0.5 ? '59, 130, 246' : Math.random() > 0.5 ? '147, 51, 234' : '236, 72, 153'}, 0.6)`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`
+              animation: `pulse ${2 + Math.random() * 2}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 2}s`
             }}
           />
         ))}
         
-        {/* Galaxy spiral arms */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-blue-600/20 to-transparent rounded-full animate-spin-slow"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-radial from-purple-600/20 to-transparent rounded-full animate-spin-slow" style={{animationDirection: 'reverse'}}></div>
+        {/* Simplified galaxy spiral arms - Static instead of rotating */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-radial from-blue-600/20 to-transparent rounded-full"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-radial from-purple-600/20 to-transparent rounded-full"></div>
         </div>
       </div>
 
@@ -222,10 +222,10 @@ function App() {
                 {searchResults.map((item, index) => (
                   <div 
                     key={`${item.id}-${item.media_type}`}
-                    className="transform transition-all duration-500"
+                    className="transform transition-all duration-300 hover:scale-105"
                     style={{ 
-                      animationDelay: `${index * 0.1}s`,
-                      animation: `slideInUp 0.6s ease-out ${index * 0.1}s both`
+                      animationDelay: `${index * 0.05}s`,
+                      animation: `slideInUp 0.4s ease-out ${index * 0.05}s both`
                     }}
                   >
                     <MovieCard 
@@ -254,9 +254,10 @@ function App() {
                   {movies.slice(0, 12).map((movie, index) => (
                     <div 
                       key={movie.id}
+                      className="transform transition-all duration-300 hover:scale-105"
                       style={{ 
-                        animationDelay: `${index * 0.05}s`,
-                        animation: `slideInUp 0.6s ease-out ${index * 0.05}s both`
+                        animationDelay: `${index * 0.03}s`,
+                        animation: `slideInUp 0.4s ease-out ${index * 0.03}s both`
                       }}
                     >
                       <MovieCard movie={movie} onPlay={handleMovieClick} />
@@ -274,9 +275,10 @@ function App() {
                   {tvShows.slice(0, 12).map((show, index) => (
                     <div 
                       key={show.id}
+                      className="transform transition-all duration-300 hover:scale-105"
                       style={{ 
-                        animationDelay: `${index * 0.05}s`,
-                        animation: `slideInUp 0.6s ease-out ${index * 0.05}s both`
+                        animationDelay: `${index * 0.03}s`,
+                        animation: `slideInUp 0.4s ease-out ${index * 0.03}s both`
                       }}
                     >
                       <MovieCard 
@@ -301,9 +303,10 @@ function App() {
                 {movies.map((movie, index) => (
                   <div 
                     key={movie.id}
+                    className="transform transition-all duration-300 hover:scale-105"
                     style={{ 
-                      animationDelay: `${index * 0.03}s`,
-                      animation: `slideInUp 0.6s ease-out ${index * 0.03}s both`
+                      animationDelay: `${index * 0.02}s`,
+                      animation: `slideInUp 0.4s ease-out ${index * 0.02}s both`
                     }}
                   >
                     <MovieCard movie={movie} onPlay={handleMovieClick} />
@@ -324,9 +327,10 @@ function App() {
                 {tvShows.map((show, index) => (
                   <div 
                     key={show.id}
+                    className="transform transition-all duration-300 hover:scale-105"
                     style={{ 
-                      animationDelay: `${index * 0.03}s`,
-                      animation: `slideInUp 0.6s ease-out ${index * 0.03}s both`
+                      animationDelay: `${index * 0.02}s`,
+                      animation: `slideInUp 0.4s ease-out ${index * 0.02}s both`
                     }}
                   >
                     <MovieCard 
@@ -350,9 +354,10 @@ function App() {
                 {trendingMovies.map((movie, index) => (
                   <div 
                     key={movie.id}
+                    className="transform transition-all duration-300 hover:scale-105"
                     style={{ 
-                      animationDelay: `${index * 0.03}s`,
-                      animation: `slideInUp 0.6s ease-out ${index * 0.03}s both`
+                      animationDelay: `${index * 0.02}s`,
+                      animation: `slideInUp 0.4s ease-out ${index * 0.02}s both`
                     }}
                   >
                     <MovieCard movie={movie} onPlay={handleMovieClick} />
@@ -382,7 +387,7 @@ function App() {
         @keyframes slideInUp {
           from { 
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to { 
             opacity: 1;
@@ -390,13 +395,19 @@ function App() {
           }
         }
         
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
         }
         
-        .animate-spin-slow {
-          animation: spin-slow 10s linear infinite;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 0.8; transform: scale(1.1); }
         }
         
         .bg-gradient-radial {
