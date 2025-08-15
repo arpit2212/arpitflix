@@ -21,7 +21,6 @@ A modern, responsive movie and series streaming website built with React and Vit
 ![movies cast](https://github.com/arpit2212/arpitflix/blob/main/src/assets/Screenshot%202025-08-15%20104028.png?raw=true)
 ![Movies extra detail](https://github.com/arpit2212/arpitflix/blob/main/src/assets/Screenshot%202025-08-15%20104047.png?raw=true)
 
-<img width="1892" height="916" alt="image" src="https://github.com/user-attachments/assets/cedd1bb4-42b6-4fc2-8b17-e4394b616418" /><img width="1919" height="839" alt="image" src="https://github.com/user-attachments/assets/473d00bf-17c8-4fea-824c-b6c19ae3624f" /><img width="1893" height="908" alt="image" src="https://github.com/user-attachments/assets/65a57753-d780-40e1-a2e8-e0664ad7d269" /
 
 ## 🛠️ Tech Stack
 
